@@ -1,6 +1,5 @@
 # Paxos Simulation and Analysis Toolkit
 
-**Ezgi Sena Karabacak**  
 Based on [Essential Paxos by Tom Cocagne](https://github.com/cocagne/paxos)  
 Project version: 1.0  
 May 2025
@@ -63,7 +62,7 @@ The original Paxos logic lives in the `paxos/` directory and remains close to th
 ## Credits
 
 - **Tom Cocagne** – [Essential Paxos](https://github.com/cocagne/paxos)
-- **Ezgi Sena Karabacak** – Paxos simulation and performance analysis extensions
+- **Ezgi Sena Karabacak** , ** Mehmet Oguz Arslan** – Paxos simulation and performance analysis extensions
 
 ---
 
