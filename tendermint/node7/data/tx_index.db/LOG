@@ -1,0 +1,69 @@
+=============== May 18, 2025 (UTC) ===============
+17:22:29.975297 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:22:29.990661 db@open opening
+17:22:29.996281 version@stat F·[] S·0B[] Sc·[]
+17:22:29.999849 db@janitor F·2 G·0
+17:22:30.001737 db@open done T·10.532333ms
+=============== May 18, 2025 (UTC) ===============
+17:24:22.826749 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:24:22.836657 version@stat F·[] S·0B[] Sc·[]
+17:24:22.837523 db@open opening
+17:24:22.838547 journal@recovery F·1
+17:24:22.841028 journal@recovery recovering @1
+17:24:22.849601 version@stat F·[] S·0B[] Sc·[]
+17:24:22.868722 db@janitor F·2 G·0
+17:24:22.870073 db@open done T·31.016ms
+17:27:58.758947 memdb@flush N·39331 S·3MiB
+17:28:04.609557 memdb@flush created L0@5 N·39331 S·1MiB "\x00\x03!..=\xbb\xe4,v13355":"\xffڜ..b\x8fc,v37753"
+17:28:04.640419 version@stat F·[1] S·1MiB[1MiB] Sc·[0.25]
+17:28:04.646416 memdb@flush committed F·1 T·5.875363336s
+17:28:04.686943 journal@remove removed @2
+17:29:47.122418 memdb@flush N·39103 S·3MiB
+17:29:52.426694 memdb@flush created L0@7 N·39103 S·1MiB "\x00\b\xaa..\b7F,v64103":"\xff\xfa\xa9..\x14\x93D,v70311"
+17:29:52.434123 version@stat F·[2] S·3MiB[3MiB] Sc·[0.50]
+17:29:52.440383 memdb@flush committed F·1 T·5.314555128s
+17:29:52.447468 journal@remove removed @4
+17:31:06.426812 memdb@flush N·38822 S·3MiB
+17:31:11.897329 memdb@flush created L0@9 N·38822 S·1MiB "\x00\n\x97..G\x93\xf3,v104813":"\xff\xf37..\xab^],v114135"
+17:31:11.898597 version@stat F·[3] S·5MiB[5MiB] Sc·[0.75]
+17:31:11.905188 memdb@flush committed F·1 T·5.469330377s
+17:31:11.911371 journal@remove removed @6
+17:32:12.294398 memdb@flush N·38662 S·3MiB
+17:32:16.925993 memdb@flush created L0@11 N·38662 S·1MiB "\x00\x01%..\xdd\xf6\xf0,v145707":"\xff\xfe\x19..\xe4\xfe\xff,v145207"
+17:32:16.927668 version@stat F·[4] S·7MiB[7MiB] Sc·[1.00]
+17:32:16.931231 memdb@flush committed F·1 T·4.633112502s
+17:32:16.937199 journal@remove removed @8
+17:32:16.938850 table@compaction L0·4 -> L1·0 S·7MiB Q·157746
+17:32:24.601732 table@build created L1@12 N·37881 S·2MiB "\x00\x01%..\xdd\xf6\xf0,v145707":"app..123,v130715"
+17:32:31.007847 table@build created L1@13 N·47262 S·2MiB "app..124,v130720":"app../19,v55463"
+17:32:38.284983 table@build created L1@14 N·41745 S·2MiB "app../20,v55468":"tx.../33,v95150"
+17:32:43.931343 table@build created L1@15 N·29030 S·1MiB "tx.../34,v95155":"\xff\xfe\x19..\xe4\xfe\xff,v145207"
+17:32:43.936569 version@stat F·[0 4] S·7MiB[0B 7MiB] Sc·[0.00 0.08]
+17:32:43.941493 table@compaction committed F~ S+77KiB Ke·0 D·0 T·26.997012387s
+17:32:43.947738 table@remove removed @11
+17:32:43.953452 table@remove removed @9
+17:32:43.957352 table@remove removed @7
+17:32:43.962516 table@remove removed @5
+17:33:37.223429 memdb@flush N·38883 S·3MiB
+17:33:42.527705 memdb@flush created L0@17 N·38883 S·1MiB "\x00\x04\xa8..\xe7\xa8\xfd,v174428":"\xff\xee\x9f..\xa6Il,v171108"
+17:33:42.528812 version@stat F·[1 4] S·9MiB[1MiB 7MiB] Sc·[0.25 0.08]
+17:33:42.535511 memdb@flush committed F·1 T·5.296475628s
+17:33:42.567717 journal@remove removed @10
+17:34:40.093376 memdb@flush N·38565 S·3MiB
+17:34:45.031170 memdb@flush created L0@19 N·38565 S·1MiB "\x00\x1c\xa1..\xd6\xd7L,v227186":"\xff\xfe\xbf..\xa0\xe1\xb8,v232815"
+17:34:45.033673 version@stat F·[2 4] S·11MiB[3MiB 7MiB] Sc·[0.50 0.08]
+17:34:45.036584 memdb@flush committed F·1 T·4.940712544s
+17:34:45.041493 journal@remove removed @16
+17:35:52.904064 memdb@flush N·38782 S·3MiB
+17:35:58.175296 memdb@flush created L0@21 N·38782 S·1MiB "\x00\f\x05..\x11\xa4\x8e,v262776":"\xff\xf5\x0f...\x985,v263602"
+17:35:58.181150 version@stat F·[3 4] S·13MiB[5MiB 7MiB] Sc·[0.75 0.08]
+17:35:58.185814 memdb@flush committed F·1 T·5.279498461s
+17:35:58.225944 journal@remove removed @18
+17:37:02.536241 memdb@flush N·38950 S·3MiB
+17:37:10.010799 memdb@flush created L0@23 N·38950 S·1MiB "\x00\a\xee..A&\\,v302840":"\xff\xfc\"..`\ag,v291825"
+17:37:10.052732 version@stat F·[4 4] S·15MiB[7MiB 7MiB] Sc·[1.00 0.08]
+17:37:10.067533 memdb@flush committed F·1 T·7.530151671s
+17:37:10.074498 journal@remove removed @20
+17:37:10.076401 table@compaction L0·4 -> L1·4 S·15MiB Q·312982
+17:37:18.920052 table@build created L1@24 N·24553 S·2MiB "\x00\x01%..\xdd\xf6\xf0,v145707":"app../13,v4258"
+17:37:24.489730 table@build created L1@25 N·51216 S·2MiB "app../14,v4263":"app../36,v260814"

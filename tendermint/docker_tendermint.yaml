@@ -1,0 +1,64 @@
+version: "3.7"
+
+services:
+  node0:
+    container_name: node0
+    image: tendermint/tendermint:v0.34.24
+    command: ["node", "--proxy_app=kvstore"]
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "26656-26657:26656-26657"
+      - "26660:26660" 
+
+    volumes:
+      - ./node0:/tendermint
+    networks:
+      tendermintnet:
+        ipv4_address: 172.30.0.2
+
+  node1:
+    container_name: node1
+    image: tendermint/tendermint:v0.34.24
+    command: ["node", "--proxy_app=kvstore"]
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "26666-26667:26656-26657"
+    volumes:
+      - ./node1:/tendermint
+    networks:
+      tendermintnet:
+        ipv4_address: 172.30.0.3
+
+  node2:
+    container_name: node2
+    image: tendermint/tendermint:v0.34.24
+    command: ["node", "--proxy_app=kvstore"]
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "26676-26677:26656-26657"
+    volumes:
+      - ./node2:/tendermint
+    networks:
+      tendermintnet:
+        ipv4_address: 172.30.0.4
+
+  node3:
+    container_name: node3
+    image: tendermint/tendermint:v0.34.24
+    command: ["node", "--proxy_app=kvstore"]
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "26686-26687:26656-26657"
+    volumes:
+      - ./node3:/tendermint
+    networks:
+      tendermintnet:
+        ipv4_address: 172.30.0.5
+        
+networks:
+  tendermintnet:
+    external: true

@@ -1,0 +1,20 @@
+services:
+  prometheus:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    networks:
+      - tendermintnet
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - tendermintnet
+
+networks:
+  tendermintnet:
+    external: true
