@@ -8,7 +8,7 @@ import time
 import random
 import queue
 from typing import Dict, List, Tuple, Optional
-from paxos.essential import Proposer, Acceptor, Learner, ProposalID
+from paxos_main.essential import Proposer, Acceptor, Learner, ProposalID
 from paxos_simulation import NetworkMessage, NetworkSimulator, PaxosNode, PaxosProposer, PaxosAcceptor, PaxosLearner
 import math
 

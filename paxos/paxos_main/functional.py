@@ -4,9 +4,9 @@ simple heartbeating mechanism.
 '''
 import time
 
-from paxos import practical
+from paxos_main import practical
 
-from paxos.practical import ProposalID
+from paxos_main.practical import ProposalID
 
 
 class HeartbeatMessenger (practical.Messenger):

@@ -2,7 +2,7 @@ import time
 import threading
 import random
 import logging
-from paxos.essential import Proposer, Acceptor, Learner, ProposalID
+from paxos_main.essential import Proposer, Acceptor, Learner, ProposalID
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

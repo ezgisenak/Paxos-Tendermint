@@ -2,9 +2,9 @@
 This module builds upon the essential Paxos implementation and adds
 functionality required for most practical uses of the algorithm. 
 '''
-from paxos import essential
+from paxos_main import essential
 
-from paxos.essential import ProposalID
+from paxos_main.essential import ProposalID
 
 
 class Messenger (essential.Messenger):

@@ -221,6 +221,8 @@ def analyze_acceptor_impact(
     plt.savefig('acceptor_impact_avg_var.png', dpi=150, bbox_inches='tight')
     plt.show()
 
+    return df
+
 def analyze_proposer_impact(
     max_proposers: int = 5,
     num_acceptors: int = 4,
@@ -275,9 +277,11 @@ def analyze_proposer_impact(
     ax.set_facecolor('white')
     fig.patch.set_facecolor('white')
     plt.tight_layout()
-    plt.savefig('proposer_impact_avg_var.png', dpi=150, bbox_inches='tight')
     plt.legend()
+    plt.savefig('proposer_impact_avg_var.png', dpi=150, bbox_inches='tight')
     plt.show()
+
+    return df
 
 def analyze_network_conditions(
     delay_ranges: List[Tuple[float, float]] = [(0.01, 0.05), (0.1, 0.2), (0.3, 0.5)],
@@ -479,6 +483,35 @@ def plot_elapsed_time_vs_delay(
     plt.savefig('elapsed_time_vs_delay_ms.png', dpi=150, bbox_inches='tight')
     plt.show()
 
+def plot_acceptor_and_proposer_impact_together(df_acceptors, df_proposers):
+    plt.style.use('seaborn-v0_8-whitegrid')
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    # Plot acceptor impact
+    ax.errorbar(
+        df_acceptors['num_acceptors'],
+        df_acceptors['avg_consensus_time'] * 1000,
+        yerr=df_acceptors['std_consensus_time'] * 1000,
+        fmt='o-', color='#007acc', capsize=5, markersize=8, label='Varying Acceptors'
+    )
+
+    # Plot proposer impact
+    ax.errorbar(
+        df_proposers['num_proposers'],
+        df_proposers['avg_consensus_time'] * 1000,
+        yerr=df_proposers['std_consensus_time'] * 1000,
+        fmt='s-', color='#e67e22', capsize=5, markersize=8, label='Varying Proposers'
+    )
+
+    ax.set_xlabel('Number of Nodes', fontsize=14, fontweight='bold')
+    ax.set_ylabel('Consensus Time (ms)', fontsize=14, fontweight='bold')
+    ax.set_title('Impact of Acceptors and Proposers on Consensus Time', fontsize=16, fontweight='bold', pad=20)
+    ax.legend(fontsize=12)
+    ax.grid(True, which='both', linestyle='--', linewidth=0.7, alpha=0.7)
+    plt.tight_layout()
+    plt.savefig('acceptor_vs_proposer_impact.png', dpi=150, bbox_inches='tight')
+    plt.show()
+
 if __name__ == "__main__":
     # Set style
     plt.style.use('ggplot')
@@ -487,34 +520,34 @@ if __name__ == "__main__":
     print("Starting Paxos analysis...")
     
     # 1. Analyze impact of number of acceptors
-    #analyze_acceptor_impact(
-    #    max_acceptors=10,
-    #    num_proposers=2,
-    #    num_learners=2,
-    #    delay_range=(0.01, 0.05),
-    #    failure_rate=0.0,
-    #    runs_per_config=5
-    #)
+    df_acceptors = analyze_acceptor_impact(
+        max_acceptors=10,
+        num_proposers=2,
+        num_learners=2,
+        delay_range=(0.01, 0.05),
+        failure_rate=0.0,
+        runs_per_config=5
+    )
     
     # 2. Analyze impact of number of proposers
-    #analyze_proposer_impact(
-    #    max_proposers=10,
-    #    num_acceptors=4,
-    #    num_learners=4,
-    #    delay_range=(0.01, 0.05),
-    #    failure_rate=0.0,
-    #    runs_per_config=5
-    #)
+    df_proposers = analyze_proposer_impact(
+        max_proposers=10,
+        num_acceptors=4,
+        num_learners=4,
+        delay_range=(0.01, 0.05),
+        failure_rate=0.0,
+        runs_per_config=5
+    )
     
     # 3. Analyze impact of network conditions
-    #analyze_network_conditions(
-    #    delay_ranges=[(0.01, 0.05), (0.1, 0.2), (0.2, 0.3), (0.3, 0.4)],  # Keep a constant delay range
-    #    failure_rates=[0.1, 0.2, 0.3, 0.4],  # Vary failure rates
-    #    num_proposers=2,
-    #    num_acceptors=4,
-    #    num_learners=4,
-    #    runs_per_config=5
-    #)
+    analyze_network_conditions(
+        delay_ranges=[(0.01, 0.05), (0.1, 0.2), (0.2, 0.3), (0.3, 0.4)],  # Keep a constant delay range
+        failure_rates=[0.1, 0.2, 0.3, 0.4],  # Vary failure rates
+        num_proposers=2,
+        num_acceptors=4,
+        num_learners=4,
+        runs_per_config=5
+    )
     
     plot_elapsed_time_vs_delay(
         delay_ranges=[(0.01, 0.05), (0.05, 0.1), (0.1, 0.2), (0.2, 0.3), (0.3, 0.4), (0.4, 0.5), (0.5, 0.6), (0.6, 0.7), (0.7, 0.8), (0.8, 0.9), (0.9, 1.0)],
@@ -524,5 +557,7 @@ if __name__ == "__main__":
         num_learners=0,
         runs_per_config=3
     )
+    
+    plot_acceptor_and_proposer_impact_together(df_acceptors, df_proposers)
     
     print("\nAnalysis complete! Check the generated PNG files for results.") 

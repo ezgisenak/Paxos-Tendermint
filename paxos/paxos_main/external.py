@@ -1,9 +1,9 @@
 '''
 This module extends practical.Node to support external failure detection.
 '''
-from paxos import practical
+from paxos_main import practical
 
-from paxos.practical import ProposalID
+from paxos_main.practical import ProposalID
 
 
 class ExternalMessenger (practical.Messenger):

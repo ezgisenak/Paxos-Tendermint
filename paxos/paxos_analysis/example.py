@@ -1,4 +1,4 @@
-from paxos.essential import Proposer, Acceptor, Learner, ProposalID
+from paxos_main.essential import Proposer, Acceptor, Learner, ProposalID
 import threading
 import time
 
