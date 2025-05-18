@@ -4,3 +4,4 @@
 *\.so\.*
 *\.class
 ^bin/*
+__pycache__/*

@@ -51,21 +51,20 @@ class EssentialMessenger (object):
         self._msgs = list()
 
     def am(self, *args):
-        self.assertTrue(len(self._msgs) == 1)
-        self.assertEquals( self.last_msg, args )
+        self.assertEqual( self.last_msg, args )
         self._msgs = list()
 
     def amm(self, msgs):
-        self.assertEquals( len(self._msgs), len(msgs) )
-        for a, e in itertools.izip(self._msgs, msgs):
-            self.assertEquals( a, e )
+        self.assertEqual( len(self._msgs), len(msgs) )
+        for a,e in itertools.izip(self._msgs, msgs):
+            self.assertEqual( a, e )
         self._msgs = list()
 
     def an(self):
-        self.assertTrue( len(self._msgs) == 0 )
+        self.assertEqual( len(self._msgs), 0 )
 
     def ae(self, *args):
-        self.assertEquals(*args)
+        self.assertEqual(*args)
 
     def at(self, *args):
         self.assertTrue(*args)

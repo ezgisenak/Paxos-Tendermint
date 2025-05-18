@@ -89,23 +89,17 @@ class Proposer (object):
         '''
         Called when a Promise message is received from an Acceptor
         '''
-
-        # Ignore the message if it's for an old proposal or we have already received
-        # a response from this Acceptor
         if proposal_id != self.proposal_id or from_uid in self.promises_rcvd:
             return
 
-        self.promises_rcvd.add( from_uid )
+        self.promises_rcvd.add(from_uid)
         
-        if prev_accepted_id > self.last_accepted_id:
+        if prev_accepted_id is not None and (self.last_accepted_id is None or prev_accepted_id > self.last_accepted_id):
             self.last_accepted_id = prev_accepted_id
-            # If the Acceptor has already accepted a value, we MUST set our proposal
-            # to that value.
             if prev_accepted_value is not None:
                 self.proposed_value = prev_accepted_value
 
         if len(self.promises_rcvd) == self.quorum_size:
-            
             if self.proposed_value is not None:
                 self.messenger.send_accept(self.proposal_id, self.proposed_value)
 
@@ -123,20 +117,18 @@ class Acceptor (object):
         '''
         Called when a Prepare message is received from a Proposer
         '''
-        if proposal_id == self.promised_id:
-            # Duplicate prepare message
-            self.messenger.send_promise(from_uid, proposal_id, self.accepted_id, self.accepted_value)
-        
-        elif proposal_id > self.promised_id:
+        if self.promised_id is None or proposal_id > self.promised_id:
             self.promised_id = proposal_id
             self.messenger.send_promise(from_uid, proposal_id, self.accepted_id, self.accepted_value)
-
+        elif proposal_id == self.promised_id:
+            # Duplicate prepare message
+            self.messenger.send_promise(from_uid, proposal_id, self.accepted_id, self.accepted_value)
                     
     def recv_accept_request(self, from_uid, proposal_id, value):
         '''
         Called when an Accept! message is received from a Proposer
         '''
-        if proposal_id >= self.promised_id:
+        if self.promised_id is None or proposal_id >= self.promised_id:
             self.promised_id     = proposal_id
             self.accepted_id     = proposal_id
             self.accepted_value  = value
@@ -172,21 +164,21 @@ class Learner (object):
         
         last_pn = self.acceptors.get(from_uid)
 
-        if not proposal_id > last_pn:
+        if last_pn is not None and not proposal_id > last_pn:
             return # Old message
 
-        self.acceptors[ from_uid ] = proposal_id
+        self.acceptors[from_uid] = proposal_id
         
         if last_pn is not None:
-            oldp = self.proposals[ last_pn ]
+            oldp = self.proposals[last_pn]
             oldp[1] -= 1
             if oldp[1] == 0:
-                del self.proposals[ last_pn ]
+                del self.proposals[last_pn]
 
         if not proposal_id in self.proposals:
-            self.proposals[ proposal_id ] = [0, 0, accepted_value]
+            self.proposals[proposal_id] = [0, 0, accepted_value]
 
-        t = self.proposals[ proposal_id ]
+        t = self.proposals[proposal_id]
 
         assert accepted_value == t[2], 'Value mismatch for single proposal!'
         
@@ -199,4 +191,4 @@ class Learner (object):
             self.proposals         = None
             self.acceptors         = None
 
-            self.messenger.on_resolution( proposal_id, accepted_value )
+            self.messenger.on_resolution(proposal_id, accepted_value)

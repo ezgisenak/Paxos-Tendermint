@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: essential-paxos
+Version: 2.0
+Summary: Paxos algorithm implementation suitable for practical and educational use
+Home-page: https://github.com/cocagne/paxos
+Author: Tom Cocagne
+Author-email: tom.cocagne@gmail.com
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Networking
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: summary
+
+
+Essential Paxos provides basic implementations of the Paxos algorithm. The
+distinguishing characteristic of this implementation, as compared to other
+freely available and open-source implementations, is that this library is
+independent of application domains and networking infrastructures. Whereas most
+Paxos implementations are deeply and inextricably embedded within
+application-specific logic, this implementation focuses on encapsulating the
+Paxos algorithm within opaque and easily re-usable classes.
+
+This library provides an algorithmically correct Paxos implementation that may
+be used for educational purposes in addition to direct use in networked
+applications. This implementation is specifically designed to facilitate
+understanding of both the essential Paxos algorithm as well as the practical
+considerations that must be taken into account for real-world use.
