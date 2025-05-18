@@ -1,0 +1,15 @@
+=============== May 18, 2025 (UTC) ===============
+17:22:30.122147 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:22:30.138498 db@open opening
+17:22:30.144080 version@stat F·[] S·0B[] Sc·[]
+17:22:30.147721 db@janitor F·2 G·0
+17:22:30.148335 db@open done T·9.033042ms
+=============== May 18, 2025 (UTC) ===============
+17:24:23.436305 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:24:23.447912 version@stat F·[] S·0B[] Sc·[]
+17:24:23.449409 db@open opening
+17:24:23.450243 journal@recovery F·1
+17:24:23.452432 journal@recovery recovering @1
+17:24:23.459285 version@stat F·[] S·0B[] Sc·[]
+17:24:23.487587 db@janitor F·2 G·0
+17:24:23.489547 db@open done T·39.528125ms

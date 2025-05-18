@@ -1,0 +1,13 @@
+=============== May 18, 2025 (UTC) ===============
+17:24:22.285423 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:24:22.373229 db@open opening
+17:24:22.383233 version@stat F·[] S·0B[] Sc·[]
+17:24:22.388810 db@janitor F·2 G·0
+17:24:22.390028 db@open done T·14.501375ms
+17:35:43.904405 memdb@flush N·3840 S·3MiB
+17:35:50.424834 memdb@flush created L0@3 N·3840 S·2MiB "BH:..d21,v3663":"blo..ore,v6"
+17:35:50.425873 version@stat F·[1] S·2MiB[2MiB] Sc·[0.25]
+17:35:50.429177 memdb@flush committed F·1 T·6.512862044s
+17:35:50.438573 journal@remove removed @1
+17:37:28.792612 db@close closing
+17:37:28.812778 db@close done T·20.148208ms
