@@ -62,7 +62,7 @@ The original Paxos logic lives in the `paxos/` directory and remains close to th
 ## Credits
 
 - **Tom Cocagne** – [Essential Paxos](https://github.com/cocagne/paxos)
-- **Ezgi Sena Karabacak** , ** Mehmet Oguz Arslan** – Paxos simulation and performance analysis extensions
+- **Ezgi Sena Karabacak** , **Mehmet Oguz Arslan** – Paxos simulation and performance analysis extensions
 
 ---
 
